@@ -1,0 +1,2371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SellWise AI — USA Shopify &amp; Dropshipping Product Research</title>
+  <style>
+    :root {
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-subtle: #f1f5f9;
+      --navy-950: #0b132b;
+      --navy-900: #0f172a;
+      --navy-800: #1e293b;
+      --navy-700: #1e3a8a;
+      --purple-700: #6d28d9;
+      --purple-600: #7c3aed;
+      --purple-500: #8b5cf6;
+      --purple-100: #ede9fe;
+      --purple-50: #f5f3ff;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --success-bg: #ecfdf5;
+      --success-text: #047857;
+      --success-border: #a7f3d0;
+      --warn-bg: #fffbeb;
+      --warn-text: #b45309;
+      --warn-border: #fde68a;
+      --danger-bg: #fef2f2;
+      --danger-text: #b91c1c;
+      --danger-border: #fecaca;
+      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.07);
+      --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.1);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Navigation */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      text-decoration: none;
+      color: var(--navy-900);
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--navy-700), var(--purple-600));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(109, 40, 217, 0.25);
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 1.08rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--navy-900);
+      line-height: 1.15;
+    }
+
+    .brand-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .nav-tabs {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--bg-subtle);
+      padding: 0.25rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      overflow-x: auto;
+      max-width: 100%;
+    }
+
+    .nav-btn {
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.48rem 0.85rem;
+      border-radius: 7px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-btn:hover {
+      color: var(--navy-900);
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .nav-btn.active {
+      background: #ffffff;
+      color: var(--purple-700);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-count {
+      background: var(--purple-100);
+      color: var(--purple-700);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.08rem 0.42rem;
+      border-radius: 999px;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .plan-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid var(--border-strong);
+      background: #ffffff;
+      color: var(--navy-800);
+      transition: all 0.15s ease;
+    }
+
+    .plan-pill.pro {
+      background: linear-gradient(135deg, var(--navy-900), var(--purple-700));
+      color: #ffffff;
+      border-color: transparent;
+    }
+
+    /* MVP Transparency Banner */
+    .mvp-banner {
+      background: linear-gradient(90deg, var(--navy-900), #1e1b4b);
+      color: #e2e8f0;
+      font-size: 0.78rem;
+      padding: 0.45rem 1.25rem;
+      text-align: center;
+    }
+
+    .mvp-banner strong {
+      color: #c4b5fd;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    .view-section {
+      display: none;
+    }
+
+    .view-section.active {
+      display: block;
+    }
+
+    /* Studio Grid */
+    .studio-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
+    .studio-header h1 {
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--navy-900);
+    }
+
+    .studio-header p {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      margin-top: 0.2rem;
+    }
+
+    .preset-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .preset-label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+    }
+
+    .studio-grid {
+      display: grid;
+      grid-template-columns: minmax(340px, 460px) minmax(0, 1fr);
+      gap: 1.35rem;
+      align-items: start;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      padding: 1.35rem;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .card-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--navy-900);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 0.22rem 0.6rem;
+      border-radius: 999px;
+    }
+
+    .badge-purple {
+      background: var(--purple-100);
+      color: var(--purple-700);
+    }
+
+    .badge-navy {
+      background: #e0e7ff;
+      color: var(--navy-700);
+    }
+
+    .badge-success {
+      background: var(--success-bg);
+      color: var(--success-text);
+      border: 1px solid var(--success-border);
+    }
+
+    .badge-warn {
+      background: var(--warn-bg);
+      color: var(--warn-text);
+      border: 1px solid var(--warn-border);
+    }
+
+    .badge-danger {
+      background: var(--danger-bg);
+      color: var(--danger-text);
+      border: 1px solid var(--danger-border);
+    }
+
+    /* Form Styles */
+    .form-section-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--purple-700);
+      margin: 1.15rem 0 0.65rem;
+    }
+
+    .form-section-title:first-of-type {
+      margin-top: 0;
+    }
+
+    .form-group {
+      margin-bottom: 0.85rem;
+    }
+
+    .form-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .form-row-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.65rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--navy-800);
+      margin-bottom: 0.3rem;
+    }
+
+    .hint {
+      font-size: 0.73rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      display: block;
+      margin-top: 0.2rem;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.56rem 0.75rem;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      color: var(--navy-900);
+      background: #ffffff;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      font-family: inherit;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border-color: var(--purple-600);
+      box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.14);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 64px;
+    }
+
+    .check-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.45rem;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      padding: 0.5rem 0.65rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease;
+      background: #ffffff;
+    }
+
+    .check-item:hover {
+      background: var(--purple-50);
+      border-color: #ddd6fe;
+    }
+
+    .check-item input[type="checkbox"] {
+      margin-top: 0.18rem;
+      accent-color: var(--purple-600);
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .check-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--navy-800);
+      line-height: 1.3;
+    }
+
+    .check-sub {
+      display: block;
+      font-size: 0.73rem;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.55rem 0.95rem;
+      font-size: 0.86rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--navy-700), var(--purple-600));
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(109, 40, 217, 0.22);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.06);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: var(--navy-800);
+      border-color: var(--border-strong);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-subtle);
+    }
+
+    .btn-purple-soft {
+      background: var(--purple-50);
+      color: var(--purple-700);
+      border-color: #ddd6fe;
+    }
+
+    .btn-purple-soft:hover {
+      background: var(--purple-100);
+    }
+
+    .btn-danger-soft {
+      background: var(--danger-bg);
+      color: var(--danger-text);
+      border-color: var(--danger-border);
+    }
+
+    .btn-sm {
+      padding: 0.38rem 0.7rem;
+      font-size: 0.78rem;
+    }
+
+    .action-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    /* Right Column Dashboard Stack */
+    .results-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* KPI Strip */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.85rem;
+    }
+
+    .kpi-card {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 0.9rem;
+    }
+
+    .kpi-card.highlight {
+      background: linear-gradient(135deg, #f5f3ff, #eef2ff);
+      border-color: #c7d2fe;
+    }
+
+    .kpi-label {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .kpi-value {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--navy-900);
+      margin-top: 0.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .kpi-value.positive { color: var(--success-text); }
+    .kpi-value.warning { color: var(--warn-text); }
+    .kpi-value.negative { color: var(--danger-text); }
+
+    .kpi-sub {
+      font-size: 0.74rem;
+      color: var(--text-secondary);
+      margin-top: 0.2rem;
+    }
+
+    .formula-strip {
+      margin-top: 0.9rem;
+      padding: 0.7rem 0.9rem;
+      background: #f8fafc;
+      border: 1px dashed var(--border-strong);
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.25rem;
+      justify-content: space-between;
+    }
+
+    /* Opportunity Score Section */
+    .score-hero {
+      display: grid;
+      grid-template-columns: 165px 1fr;
+      gap: 1.35rem;
+      align-items: center;
+    }
+
+    .score-ring-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .score-ring {
+      width: 148px;
+      height: 148px;
+      border-radius: 50%;
+      background: conic-gradient(var(--purple-600) 0deg, var(--border) 0deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: background 0.3s ease;
+    }
+
+    .score-ring-inner {
+      width: 118px;
+      height: 118px;
+      border-radius: 50%;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 2px 6px rgba(15, 23, 42, 0.05);
+    }
+
+    .score-number {
+      font-size: 2.15rem;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--navy-900);
+    }
+
+    .score-max {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .breakdown-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .breakdown-item-head {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.83rem;
+      font-weight: 700;
+      color: var(--navy-800);
+      margin-bottom: 0.28rem;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 8px;
+      background: var(--bg-subtle);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--navy-700), var(--purple-600));
+      transition: width 0.25s ease;
+    }
+
+    .breakdown-note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .score-explain-box {
+      margin-top: 1rem;
+      border-top: 1px solid var(--border);
+      padding-top: 0.9rem;
+    }
+
+    .score-explain-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+      margin-top: 0.55rem;
+    }
+
+    .score-explain-table th,
+    .score-explain-table td {
+      text-align: left;
+      padding: 0.48rem 0.55rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .score-explain-table th {
+      color: var(--text-muted);
+      font-weight: 700;
+      font-size: 0.73rem;
+      text-transform: uppercase;
+    }
+
+    /* Competition Analysis */
+    .comp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.85rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .comp-stat {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem;
+    }
+
+    .comp-stat-label {
+      font-size: 0.73rem;
+      color: var(--text-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .comp-stat-val {
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: var(--navy-900);
+      margin-top: 0.2rem;
+    }
+
+    /* Report Pros, Cons, Checklist */
+    .pros-cons-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .report-box {
+      border-radius: var(--radius-md);
+      padding: 0.95rem 1rem;
+      border: 1px solid var(--border);
+    }
+
+    .report-box.pros {
+      background: #f0fdf4;
+      border-color: #bbf7d0;
+    }
+
+    .report-box.cons {
+      background: #fef2f2;
+      border-color: #fecaca;
+    }
+
+    .report-box h4 {
+      font-size: 0.88rem;
+      font-weight: 800;
+      margin-bottom: 0.55rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .report-box.pros h4 { color: #166534; }
+    .report-box.cons h4 { color: #991b1b; }
+
+    .report-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      font-size: 0.83rem;
+      color: var(--navy-800);
+    }
+
+    .report-list li {
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    .report-box.pros .report-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #16a34a;
+      font-weight: 800;
+    }
+
+    .report-box.cons .report-list li::before {
+      content: "!";
+      position: absolute;
+      left: 0.15rem;
+      color: #dc2626;
+      font-weight: 900;
+    }
+
+    .checklist-box {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      background: #ffffff;
+    }
+
+    .checklist-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.65rem;
+    }
+
+    .checklist-items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.55rem;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      padding: 0.5rem 0.6rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 0.81rem;
+      cursor: pointer;
+    }
+
+    .checklist-item.done {
+      background: var(--bg-subtle);
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .checklist-item input {
+      margin-top: 0.18rem;
+      accent-color: var(--purple-600);
+    }
+
+    /* Saved Reports View */
+    .saved-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .saved-search {
+      max-width: 340px;
+      width: 100%;
+    }
+
+    .saved-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1rem;
+    }
+
+    .saved-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.1rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.85rem;
+    }
+
+    .saved-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .saved-card h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--navy-900);
+    }
+
+    .saved-date {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+    }
+
+    .saved-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      background: var(--bg-subtle);
+      padding: 0.65rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+    }
+
+    .saved-metrics strong {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--navy-900);
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 3rem 1.25rem;
+      background: #ffffff;
+      border: 1px dashed var(--border-strong);
+      border-radius: var(--radius-lg);
+      color: var(--text-secondary);
+    }
+
+    /* Pricing View */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 440px));
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .pricing-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .pricing-card.featured {
+      border: 2px solid var(--purple-600);
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+
+    .pricing-tag {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: linear-gradient(135deg, var(--navy-700), var(--purple-600));
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .price-amount {
+      font-size: 2.3rem;
+      font-weight: 900;
+      color: var(--navy-900);
+      margin: 0.6rem 0;
+    }
+
+    .price-amount span {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .feature-list {
+      list-style: none;
+      margin: 1.15rem 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      color: var(--navy-800);
+    }
+
+    .feature-list li::before {
+      content: "✓ ";
+      color: var(--purple-600);
+      font-weight: 800;
+    }
+
+    /* Rubric View */
+    .rubric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--navy-900);
+      color: #ffffff;
+      padding: 0.75rem 1.1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-lg);
+      z-index: 100;
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      transition: all 0.2s ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 1040px) {
+      .studio-grid {
+        grid-template-columns: 1fr;
+      }
+      .kpi-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .score-hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .pros-cons-grid,
+      .checklist-items,
+      .comp-grid,
+      .rubric-grid,
+      .pricing-grid,
+      .form-row-2,
+      .form-row-3 {
+        grid-template-columns: 1fr;
+      }
+      .topbar-inner {
+        padding: 0.65rem 0.9rem;
+      }
+      .container {
+        padding: 1rem 0.9rem 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="#studio" class="brand" onclick="switchView('studio'); return false;">
+        <div class="brand-logo" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">SellWise AI</span>
+          <span class="brand-sub">USA Shopify &amp; Dropshipping Intelligence</span>
+        </div>
+      </a>
+
+      <nav class="nav-tabs" aria-label="Primary Navigation">
+        <button class="nav-btn active" data-view="studio" onclick="switchView('studio')">Research Studio</button>
+        <button class="nav-btn" data-view="saved" onclick="switchView('saved')">
+          Saved Reports <span class="nav-count" id="savedCountBadge">0</span>
+        </button>
+        <button class="nav-btn" data-view="rubric" onclick="switchView('rubric')">Score Methodology</button>
+        <button class="nav-btn" data-view="pricing" onclick="switchView('pricing')">Plans &amp; Pricing</button>
+      </nav>
+
+      <div class="topbar-right">
+        <button class="plan-pill" id="headerPlanPill" onclick="switchView('pricing')" title="View Free & Pro Plan Interface">
+          <span id="headerPlanText">Free Plan (MVP)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Transparency Banner -->
+  <div class="mvp-banner">
+    <strong>Transparent Local MVP:</strong> All calculations, scores, and reports run strictly on your entered data and save locally in your browser (<code>localStorage</code>). No live market data is fabricated and no payments are collected.
+  </div>
+
+  <main class="container">
+
+    <!-- ==================== VIEW 1: RESEARCH STUDIO ==================== -->
+    <section id="view-studio" class="view-section active">
+      <div class="studio-header">
+        <div>
+          <h1>Product Research &amp; Viability Studio</h1>
+          <p>Evaluate USA Shopify &amp; dropshipping unit economics, competition saturation, and launch readiness.</p>
+        </div>
+        <div class="preset-bar">
+          <span class="preset-label">Sample Inputs:</span>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="loadSample('winning')">High-Margin Niche</button>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="loadSample('crowded')">Saturated Trend</button>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="resetForm()">Clear Form</button>
+        </div>
+      </div>
+
+      <div class="studio-grid">
+        <!-- LEFT: Product Research Form -->
+        <aside class="card" aria-label="Product Research Form">
+          <div class="card-header">
+            <h2 class="card-title">1. Product Research Inputs</h2>
+            <span class="badge badge-purple">USD ($)</span>
+          </div>
+
+          <form id="researchForm" onsubmit="return false;">
+            <div class="form-section-title">Product &amp; Unit Economics</div>
+            <div class="form-group">
+              <label for="productName">Product Name *</label>
+              <input type="text" id="productName" placeholder="e.g., Magnetic Under-Desk Cable Tray" value="Ergonomic Cervical Neck Stretcher" />
+            </div>
+
+            <div class="form-row-3">
+              <div class="form-group">
+                <label for="supplierCost">Supplier Cost ($)</label>
+                <input type="number" id="supplierCost" min="0" step="0.01" value="8.50" />
+              </div>
+              <div class="form-group">
+                <label for="shippingCost">Shipping Cost ($)</label>
+                <input type="number" id="shippingCost" min="0" step="0.01" value="4.50" />
+              </div>
+              <div class="form-group">
+                <label for="sellingPrice">Selling Price ($)</label>
+                <input type="number" id="sellingPrice" min="0" step="0.01" value="39.99" />
+              </div>
+            </div>
+
+            <div class="form-section-title">Competition &amp; Supply (User Observed)</div>
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="competitors">Direct Competitors
+                  <span class="hint">Active Shopify/DTC stores you found</span>
+                </label>
+                <input type="number" id="competitors" min="0" step="1" value="4" />
+              </div>
+              <div class="form-group">
+                <label for="sellers">Active Sellers
+                  <span class="hint">Amazon/AliExpress/marketplace listings</span>
+                </label>
+                <input type="number" id="sellers" min="0" step="1" value="9" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="competitorNotes">Competitor Price / Positioning Notes (Optional)</label>
+              <input type="text" id="competitorNotes" placeholder="e.g., Most sell at $34-$45 with generic photos" value="Competitors sell around $35-$44; weak unboxing branding" />
+            </div>
+
+            <div class="form-section-title">Product Features (4 pts each · Max 20)</div>
+            <div class="check-grid" id="featureCheckboxes">
+              <label class="check-item">
+                <input type="checkbox" id="feat_solvesPain" checked />
+                <span class="check-label">Solves a Clear Pain Point
+                  <span class="check-sub">Addresses health, time, comfort, or functional frustration</span>
+                </span>
+              </label>
+              <label class="check-item">
+                <input type="checkbox" id="feat_wowFactor" checked />
+                <span class="check-label">Strong Visual Hook / Differentiation
+                  <span class="check-sub">Easy to demonstrate in 3-second TikTok/Meta video ads</span>
+                </span>
+              </label>
+              <label class="check-item">
+                <input type="checkbox" id="feat_easyShip" checked />
+                <span class="check-label">Lightweight &amp; Low Breakage Risk
+                  <span class="check-sub">Under 2 lbs, durable for US parcel delivery</span>
+                </span>
+              </label>
+              <label class="check-item">
+                <input type="checkbox" id="feat_repeatValue" />
+                <span class="check-label">Upsell, Bundle, or Repeat Purchase Potential
+                  <span class="check-sub">Supports higher AOV bundles or refills</span>
+                </span>
+              </label>
+              <label class="check-item">
+                <input type="checkbox" id="feat_brandable" checked />
+                <span class="check-label">Brandable / Private-Label Ready
+                  <span class="check-sub">Can add custom packaging or logo later</span>
+                </span>
+              </label>
+            </div>
+
+            <div class="form-group" style="margin-top: 0.65rem;">
+              <label for="featureNotes">Custom Feature Notes (Included in Report)</label>
+              <textarea id="featureNotes" placeholder="Key materials, dimensions, or differentiators...">Memory foam core, compact retail box, easy 10-minute daily posture routine.</textarea>
+            </div>
+
+            <div class="form-section-title">Demand Signals (4 pts each · Max 20)</div>
+            <div class="check-grid" id="demandCheckboxes">
+              <label class="check-item">
+                <input type="checkbox" id="dem_searchMomentum" checked />
+                <span class="check-label">Positive Search Trend Momentum
+                  <span class="check-sub">Verified via Google Trends or keyword volume</span>
+                </span>
+              </label>
+              <label class="check-item">
+                <input type="checkbox" id="dem_socialTraction" checked />
+                <span class="check-label">Active Ad / Social Engagement
+                  <span class="check-sub">Recent organic views or active Meta Ad Library creatives</span>
+                </span>
+              </label>
+              <label class="check-item">
+                <input type="checkbox" id="dem_evergreen" checked />
+                <span class="check-label">Evergreen Year-Round Demand
+                  <span class="check-sub">Not limited to a single holiday or micro-season</span>
+                </span>
+              </label>
+              <label class="check-item">
+                <input type="checkbox" id="dem_impulseAppeal" />
+                <span class="check-label">Strong Emotional / Impulse Trigger
+                  <span class="check-sub">Shoppers buy on first visit without long research</span>
+                </span>
+              </label>
+              <label class="check-item">
+                <input type="checkbox" id="dem_valuePerception" checked />
+                <span class="check-label">High Perceived Value (&ge; 3x Landed Cost)
+                  <span class="check-sub">Customers perceive clear value at target US retail price</span>
+                </span>
+              </label>
+            </div>
+
+            <div class="action-bar">
+              <button type="button" class="btn btn-primary" onclick="saveCurrentReport()" style="flex: 1;">
+                Save Report Locally
+              </button>
+              <button type="button" class="btn btn-purple-soft" onclick="copyReportToClipboard()">
+                Copy Report
+              </button>
+            </div>
+          </form>
+        </aside>
+
+        <!-- RIGHT: Live Analytics & Research Report -->
+        <div class="results-stack">
+
+          <!-- 1. Profit & Margin Calculator -->
+          <section class="card" aria-label="Profit and Margin Calculator">
+            <div class="card-header">
+              <h2 class="card-title">2. Automatic Profit &amp; Margin Calculator</h2>
+              <span class="badge badge-navy" id="marginHealthBadge">Calculating...</span>
+            </div>
+
+            <div class="kpi-grid">
+              <div class="kpi-card highlight">
+                <div class="kpi-label">Gross Profit / Unit</div>
+                <div class="kpi-value" id="kpiGrossProfit">$0.00</div>
+                <div class="kpi-sub" id="kpiLandedCost">Landed Cost: $0.00</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-label">Gross Profit Margin</div>
+                <div class="kpi-value" id="kpiGrossMargin">0.0%</div>
+                <div class="kpi-sub" id="kpiMarkup">Markup: 0%</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-label">Net After Est. Fee*</div>
+                <div class="kpi-value" id="kpiNetProfit">$0.00</div>
+                <div class="kpi-sub" id="kpiNetMargin">Net Margin: 0.0%</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-label">Break-Even ROAS</div>
+                <div class="kpi-value" id="kpiRoas">—</div>
+                <div class="kpi-sub" id="kpiMaxCpa">Max Ad CPA: $0.00</div>
+              </div>
+            </div>
+
+            <div class="formula-strip">
+              <span><strong>Landed Cost:</strong> Supplier + Shipping</span>
+              <span><strong>Gross Margin:</strong> (Selling &minus; Landed) &divide; Selling</span>
+              <span><strong>*US Shopify Payments Est.:</strong> 2.9% + $0.30/order</span>
+              <span><strong>Break-Even ROAS:</strong> 1 &divide; Gross Margin</span>
+            </div>
+          </section>
+
+          <!-- 2. Transparent Product Opportunity Score -->
+          <section class="card" aria-label="Product Opportunity Score">
+            <div class="card-header">
+              <h2 class="card-title">3. Transparent Product Opportunity Score</h2>
+              <span class="badge" id="scoreVerdictBadge">Evaluating</span>
+            </div>
+
+            <div class="score-hero">
+              <div class="score-ring-wrap">
+                <div class="score-ring" id="scoreRing">
+                  <div class="score-ring-inner">
+                    <div class="score-number" id="scoreTotal">0</div>
+                    <div class="score-max">OUT OF 100</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="breakdown-list">
+                <div>
+                  <div class="breakdown-item-head">
+                    <span>Unit Economics &amp; Margin</span>
+                    <span id="ptsEconomics">0 / 35 pts</span>
+                  </div>
+                  <div class="progress-track"><div class="progress-fill" id="barEconomics" style="width: 0%"></div></div>
+                  <div class="breakdown-note" id="noteEconomics"></div>
+                </div>
+
+                <div>
+                  <div class="breakdown-item-head">
+                    <span>Competition &amp; Seller Saturation</span>
+                    <span id="ptsCompetition">0 / 25 pts</span>
+                  </div>
+                  <div class="progress-track"><div class="progress-fill" id="barCompetition" style="width: 0%"></div></div>
+                  <div class="breakdown-note" id="noteCompetition"></div>
+                </div>
+
+                <div>
+                  <div class="breakdown-item-head">
+                    <span>Product Features &amp; Differentiation</span>
+                    <span id="ptsFeatures">0 / 20 pts</span>
+                  </div>
+                  <div class="progress-track"><div class="progress-fill" id="barFeatures" style="width: 0%"></div></div>
+                  <div class="breakdown-note" id="noteFeatures"></div>
+                </div>
+
+                <div>
+                  <div class="breakdown-item-head">
+                    <span>User-Observed Demand Signals</span>
+                    <span id="ptsDemand">0 / 20 pts</span>
+                  </div>
+                  <div class="progress-track"><div class="progress-fill" id="barDemand" style="width: 0%"></div></div>
+                  <div class="breakdown-note" id="noteDemand"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="score-explain-box">
+              <strong style="font-size: 0.84rem; color: var(--navy-900);">How Your Score Was Calculated (100% Deterministic):</strong>
+              <table class="score-explain-table">
+                <thead>
+                  <tr>
+                    <th>Scoring Factor</th>
+                    <th>Your Input</th>
+                    <th>Rule Applied</th>
+                    <th>Points</th>
+                  </tr>
+                </thead>
+                <tbody id="scoreExplainBody"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- 3. Competition Analysis -->
+          <section class="card" aria-label="Competition Analysis">
+            <div class="card-header">
+              <h2 class="card-title">4. Competition Analysis (Based on Your Inputs)</h2>
+              <span class="badge" id="compTierBadge">Moderate</span>
+            </div>
+
+            <div class="comp-grid">
+              <div class="comp-stat">
+                <div class="comp-stat-label">Saturation Level</div>
+                <div class="comp-stat-val" id="compSaturation">—</div>
+              </div>
+              <div class="comp-stat">
+                <div class="comp-stat-label">Market Positioning</div>
+                <div class="comp-stat-val" id="compPositioning">—</div>
+              </div>
+              <div class="comp-stat">
+                <div class="comp-stat-label">Ad-Spend Buffer</div>
+                <div class="comp-stat-val" id="compAdBuffer">—</div>
+              </div>
+            </div>
+
+            <p id="compSummaryText" style="font-size: 0.87rem; color: var(--text-secondary);"></p>
+          </section>
+
+          <!-- 4. Research Report: Pros, Cons & Launch Checklist -->
+          <section class="card" aria-label="Research Report">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">5. Research Report: <span id="reportTitleProduct">Product</span></h2>
+              </div>
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <button type="button" class="btn btn-secondary btn-sm" onclick="copyReportToClipboard()">Copy Report</button>
+                <button type="button" class="btn btn-primary btn-sm" onclick="saveCurrentReport()">Save Report</button>
+              </div>
+            </div>
+
+            <div class="pros-cons-grid">
+              <div class="report-box pros">
+                <h4>Key Strengths (Pros)</h4>
+                <ul class="report-list" id="reportPros"></ul>
+              </div>
+              <div class="report-box cons">
+                <h4>Risks &amp; Gaps (Cons)</h4>
+                <ul class="report-list" id="reportCons"></ul>
+              </div>
+            </div>
+
+            <div class="checklist-box">
+              <div class="checklist-header">
+                <strong style="font-size: 0.9rem; color: var(--navy-900);">USA Shopify &amp; Dropshipping Launch Checklist</strong>
+                <span class="badge badge-purple" id="checklistProgress">0 / 6 Done</span>
+              </div>
+              <div class="checklist-items" id="checklistContainer"></div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW 2: SAVED REPORTS ==================== -->
+    <section id="view-saved" class="view-section">
+      <div class="studio-header">
+        <div>
+          <h1>Saved Product Reports</h1>
+          <p id="savedPlanSubtitle">Stored locally in your browser. Click any report to reload it into the Research Studio.</p>
+        </div>
+        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+          <button type="button" class="btn btn-purple-soft btn-sm" id="exportCsvBtn" onclick="exportSavedCsv()">Export CSV (Pro)</button>
+          <button type="button" class="btn btn-danger-soft btn-sm" onclick="clearAllReports()">Clear All</button>
+        </div>
+      </div>
+
+      <div class="saved-toolbar">
+        <input type="text" id="savedSearchInput" class="saved-search" placeholder="Search saved reports by product name..." oninput="renderSavedReports()" />
+        <span class="badge badge-navy" id="savedLimitIndicator">0 / 3 Free Reports Used</span>
+      </div>
+
+      <div id="savedReportsGrid" class="saved-grid"></div>
+    </section>
+
+    <!-- ==================== VIEW 3: SCORING METHODOLOGY ==================== -->
+    <section id="view-rubric" class="view-section">
+      <div class="studio-header">
+        <div>
+          <h1>Transparent 100-Point Scoring Methodology</h1>
+          <p>SellWise AI never invents live market data. Every point is calculated transparently from your inputs.</p>
+        </div>
+      </div>
+
+      <div class="rubric-grid">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">1. Unit Economics &amp; Margin (35 pts)</h2>
+            <span class="badge badge-purple">Max 35</span>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+            USA paid social ads (Meta/TikTok) require healthy margins to absorb customer acquisition costs (CPA) and payment fees.
+          </p>
+          <table class="score-explain-table">
+            <thead><tr><th>Gross Margin %</th><th>Points</th></tr></thead>
+            <tbody>
+              <tr><td>&ge; 65%</td><td>25 pts</td></tr>
+              <tr><td>50% – 64.9%</td><td>20 pts</td></tr>
+              <tr><td>35% – 49.9%</td><td>14 pts</td></tr>
+              <tr><td>20% – 34.9%</td><td>8 pts</td></tr>
+              <tr><td>0.1% – 19.9%</td><td>3 pts</td></tr>
+              <tr><td>&le; 0%</td><td>0 pts</td></tr>
+            </tbody>
+          </table>
+          <table class="score-explain-table" style="margin-top: 0.75rem;">
+            <thead><tr><th>Gross Profit Buffer ($)</th><th>Points</th></tr></thead>
+            <tbody>
+              <tr><td>&ge; $25.00 / unit</td><td>10 pts</td></tr>
+              <tr><td>$15.00 – $24.99</td><td>8 pts</td></tr>
+              <tr><td>$10.00 – $14.99</td><td>5 pts</td></tr>
+              <tr><td>$5.00 – $9.99</td><td>2 pts</td></tr>
+              <tr><td>&lt; $5.00</td><td>0 pts</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">2. Competition &amp; Supply (25 pts)</h2>
+            <span class="badge badge-purple">Max 25</span>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+            Moderate validation (1–5 direct competitors) scores highest because zero competitors often signals unproven demand.
+          </p>
+          <table class="score-explain-table">
+            <thead><tr><th>Direct Competitors</th><th>Points</th></tr></thead>
+            <tbody>
+              <tr><td>1 – 5 competitors (Sweet Spot)</td><td>15 pts</td></tr>
+              <tr><td>0 competitors (Unvalidated)</td><td>11 pts</td></tr>
+              <tr><td>6 – 15 competitors</td><td>10 pts</td></tr>
+              <tr><td>16 – 30 competitors</td><td>5 pts</td></tr>
+              <tr><td>&gt; 30 competitors</td><td>1 pt</td></tr>
+            </tbody>
+          </table>
+          <table class="score-explain-table" style="margin-top: 0.75rem;">
+            <thead><tr><th>Active Sellers</th><th>Points</th></tr></thead>
+            <tbody>
+              <tr><td>1 – 10 sellers</td><td>10 pts</td></tr>
+              <tr><td>11 – 25 sellers</td><td>7 pts</td></tr>
+              <tr><td>0 sellers (Supply Check Needed)</td><td>6 pts</td></tr>
+              <tr><td>26 – 60 sellers</td><td>4 pts</td></tr>
+              <tr><td>&gt; 60 sellers</td><td>1 pt</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">3. Product Features (20 pts)</h2>
+            <span class="badge badge-purple">Max 20</span>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary);">
+            Each verified product attribute adds <strong>4 points</strong> (5 attributes &times; 4 = 20 pts): Pain-point relief, Visual ad hook, Lightweight/low-breakage US shipping, Upsell/repeat potential, and Private-label brandability.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">4. Demand Signals (20 pts)</h2>
+            <span class="badge badge-purple">Max 20</span>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary);">
+            Each user-observed demand signal adds <strong>4 points</strong> (5 signals &times; 4 = 20 pts): Search momentum, Active ad/social engagement, Evergreen demand, Impulse appeal, and &ge; 3x perceived value.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW 4: PLANS & PRICING ==================== -->
+    <section id="view-pricing" class="view-section">
+      <div class="studio-header" style="justify-content: center; text-align: center;">
+        <div>
+          <h1>Simple Plans for USA Shopify Sellers</h1>
+          <p>MVP Notice: No payments are collected in Version 1. Toggle Pro Preview freely to test all features locally.</p>
+        </div>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Free Plan -->
+        <div class="pricing-card">
+          <div>
+            <span class="badge badge-navy">Starter</span>
+            <h2 style="margin-top: 0.65rem; font-size: 1.35rem;">Free Plan</h2>
+            <div class="price-amount">$0 <span>/ month</span></div>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">Everything needed to validate your first product ideas transparently.</p>
+
+            <ul class="feature-list">
+              <li>Unlimited live Profit, Margin &amp; ROAS calculations</li>
+              <li>Transparent 100-point Opportunity Score breakdown</li>
+              <li>Competition &amp; saturation analysis</li>
+              <li>Full Research Report with Pros, Cons &amp; Checklist</li>
+              <li>One-click Copy Report to clipboard</li>
+              <li>Save up to 3 reports in browser local storage</li>
+            </ul>
+          </div>
+          <button type="button" class="btn btn-secondary" id="selectFreeBtn" onclick="setPlan('free')">
+            Current Plan
+          </button>
+        </div>
+
+        <!-- Pro Plan -->
+        <div class="pricing-card featured">
+          <span class="pricing-tag">MVP Preview · $0 Charged</span>
+          <div>
+            <span class="badge badge-purple">Scaling Sellers</span>
+            <h2 style="margin-top: 0.65rem; font-size: 1.35rem;">SellWise Pro</h2>
+            <div class="price-amount">$29 <span>/ month (Preview Mode)</span></div>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">Built for high-volume product researchers and Shopify store builders.</p>
+
+            <ul class="feature-list">
+              <li>Everything in Free Plan</li>
+              <li>Unlimited saved product research reports locally</li>
+              <li>One-click CSV export of saved product analyses</li>
+              <li>Priority local workspace &amp; multi-product comparison</li>
+              <li>Zero payment collection in Version 1 MVP</li>
+            </ul>
+          </div>
+          <button type="button" class="btn btn-primary" id="selectProBtn" onclick="setPlan('pro')">
+            Activate Pro Preview (Free)
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    /* =========================================================
+       STATE & STORAGE (LocalStorage MVP — Zero Paid Services)
+       ========================================================= */
+    const STORAGE_KEYS = {
+      REPORTS: "sellwise_ai_reports_v1",
+      PLAN: "sellwise_ai_plan_v1"
+    };
+    const FREE_REPORT_LIMIT = 3;
+
+    const DEFAULT_CHECKLIST = [
+      { id: "chk_us_ship", text: "Verify US shipping transit time (target 3–7 business days)", done: false },
+      { id: "chk_sample", text: "Order physical sample & inspect packaging/quality", done: false },
+      { id: "chk_trademark", text: "Check USPTO database for trademark / patent conflicts", done: false },
+      { id: "chk_creatives", text: "Script 3 short-form UGC/problem-solution video hooks", done: false },
+      { id: "chk_shopify_tax", text: "Configure Shopify US shipping profiles & tax settings", done: false },
+      { id: "chk_upsell", text: "Create 2-pack / bundle offer to lift Average Order Value", done: false }
+    ];
+
+    let currentChecklist = JSON.parse(JSON.stringify(DEFAULT_CHECKLIST));
+    let currentPlan = safeGetStorage(STORAGE_KEYS.PLAN, "free");
+    let savedReports = safeGetStorage(STORAGE_KEYS.REPORTS, []);
+    if (!Array.isArray(savedReports)) savedReports = [];
+
+    function safeGetStorage(key, fallback) {
+      try {
+        const raw = localStorage.getItem(key);
+        if (raw === null) return fallback;
+        try {
+          return JSON.parse(raw);
+        } catch {
+          return raw;
+        }
+      } catch {
+        return fallback;
+      }
+    }
+
+    function safeSetStorage(key, value) {
+      try {
+        const serialized = typeof value === "string" ? value : JSON.stringify(value);
+        localStorage.setItem(key, serialized);
+        return true;
+      } catch (err) {
+        showToast("Browser storage unavailable; changes kept in current session.");
+        return false;
+      }
+    }
+
+    function escapeHtml(str) {
+      return String(str || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function formatCurrency(num) {
+      const val = Number.isFinite(num) ? num : 0;
+      const sign = val < 0 ? "-" : "";
+      return sign + "$" + Math.abs(val).toFixed(2);
+    }
+
+    /* =========================================================
+       CORE CALCULATIONS (Pure, Deterministic, Transparent)
+       ========================================================= */
+    function readFormInputs() {
+      const num = (id) => Math.max(0, parseFloat(document.getElementById(id).value) || 0);
+      const int = (id) => Math.max(0, Math.floor(parseFloat(document.getElementById(id).value) || 0));
+      const chk = (id) => document.getElementById(id).checked;
+
+      return {
+        productName: (document.getElementById("productName").value || "").trim() || "Untitled Product",
+        supplierCost: num("supplierCost"),
+        shippingCost: num("shippingCost"),
+        sellingPrice: num("sellingPrice"),
+        competitors: int("competitors"),
+        sellers: int("sellers"),
+        competitorNotes: (document.getElementById("competitorNotes").value || "").trim(),
+        featureNotes: (document.getElementById("featureNotes").value || "").trim(),
+        features: {
+          solvesPain: chk("feat_solvesPain"),
+          wowFactor: chk("feat_wowFactor"),
+          easyShip: chk("feat_easyShip"),
+          repeatValue: chk("feat_repeatValue"),
+          brandable: chk("feat_brandable")
+        },
+        demand: {
+          searchMomentum: chk("dem_searchMomentum"),
+          socialTraction: chk("dem_socialTraction"),
+          evergreen: chk("dem_evergreen"),
+          impulseAppeal: chk("dem_impulseAppeal"),
+          valuePerception: chk("dem_valuePerception")
+        }
+      };
+    }
+
+    function computeAnalysis(inputs) {
+      // 1. Unit Economics
+      const landedCost = inputs.supplierCost + inputs.shippingCost;
+      const grossProfit = inputs.sellingPrice - landedCost;
+      const grossMarginPct = inputs.sellingPrice > 0 ? (grossProfit / inputs.sellingPrice) * 100 : 0;
+      const markupPct = landedCost > 0 ? (grossProfit / landedCost) * 100 : 0;
+      const shopifyFee = inputs.sellingPrice > 0 ? (inputs.sellingPrice * 0.029) + 0.30 : 0;
+      const netProfit = grossProfit - shopifyFee;
+      const netMarginPct = inputs.sellingPrice > 0 ? (netProfit / inputs.sellingPrice) * 100 : 0;
+      const breakEvenRoas = grossMarginPct > 0 ? (100 / grossMarginPct) : null;
+
+      // 2. Score Calculation (100 Points Total)
+      // A1: Margin Pts (25 max)
+      let marginPts = 0;
+      let marginRule = "Margin <= 0% -> 0 pts";
+      if (grossMarginPct >= 65) { marginPts = 25; marginRule = ">= 65% margin -> 25 pts"; }
+      else if (grossMarginPct >= 50) { marginPts = 20; marginRule = "50%–64.9% margin -> 20 pts"; }
+      else if (grossMarginPct >= 35) { marginPts = 14; marginRule = "35%–49.9% margin -> 14 pts"; }
+      else if (grossMarginPct >= 20) { marginPts = 8; marginRule = "20%–34.9% margin -> 8 pts"; }
+      else if (grossMarginPct > 0) { marginPts = 3; marginRule = "0.1%–19.9% margin -> 3 pts"; }
+
+      // A2: Profit Dollar Buffer Pts (10 max)
+      let bufferPts = 0;
+      let bufferRule = "< $5 profit -> 0 pts";
+      if (grossProfit >= 25) { bufferPts = 10; bufferRule = ">= $25/unit buffer -> 10 pts"; }
+      else if (grossProfit >= 15) { bufferPts = 8; bufferRule = "$15–$24.99/unit -> 8 pts"; }
+      else if (grossProfit >= 10) { bufferPts = 5; bufferRule = "$10–$14.99/unit -> 5 pts"; }
+      else if (grossProfit >= 5) { bufferPts = 2; bufferRule = "$5–$9.99/unit -> 2 pts"; }
+
+      const economicsPts = marginPts + bufferPts;
+
+      // B1: Direct Competitors Pts (15 max)
+      let compPts = 1;
+      let compRule = "> 30 competitors -> 1 pt";
+      if (inputs.competitors >= 1 && inputs.competitors <= 5) {
+        compPts = 15; compRule = "1–5 competitors (validated sweet spot) -> 15 pts";
+      } else if (inputs.competitors === 0) {
+        compPts = 11; compRule = "0 competitors (unvalidated market) -> 11 pts";
+      } else if (inputs.competitors <= 15) {
+        compPts = 10; compRule = "6–15 competitors -> 10 pts";
+      } else if (inputs.competitors <= 30) {
+        compPts = 5; compRule = "16–30 competitors -> 5 pts";
+      }
+
+      // B2: Active Sellers Pts (10 max)
+      let sellerPts = 1;
+      let sellerRule = "> 60 sellers -> 1 pt";
+      if (inputs.sellers >= 1 && inputs.sellers <= 10) {
+        sellerPts = 10; sellerRule = "1–10 sellers -> 10 pts";
+      } else if (inputs.sellers === 0) {
+        sellerPts = 6; sellerRule = "0 sellers (verify supplier availability) -> 6 pts";
+      } else if (inputs.sellers <= 25) {
+        sellerPts = 7; sellerRule = "11–25 sellers -> 7 pts";
+      } else if (inputs.sellers <= 60) {
+        sellerPts = 4; sellerRule = "26–60 sellers -> 4 pts";
+      }
+
+      const competitionPts = compPts + sellerPts;
+
+      // C: Product Features (20 max)
+      const featureCount = Object.values(inputs.features).filter(Boolean).length;
+      const featurePts = featureCount * 4;
+
+      // D: Demand Signals (20 max)
+      const demandCount = Object.values(inputs.demand).filter(Boolean).length;
+      const demandPts = demandCount * 4;
+
+      const totalScore = economicsPts + competitionPts + featurePts + demandPts;
+
+      // 3. Verdict & Competition Analysis
+      let verdict = "High Risk — Rework Offer";
+      let verdictBadge = "badge-danger";
+      if (totalScore >= 75) {
+        verdict = "Strong Launch Candidate";
+        verdictBadge = "badge-success";
+      } else if (totalScore >= 55) {
+        verdict = "Viable With Differentiation";
+        verdictBadge = "badge-warn";
+      }
+
+      let saturationLevel = "Low";
+      let compBadge = "badge-success";
+      let positioning = "Niche Early Mover";
+      let compSummary = "";
+
+      if (inputs.competitors === 0 && inputs.sellers === 0) {
+        saturationLevel = "Unverified";
+        compBadge = "badge-warn";
+        positioning = "Demand Validation Needed";
+        compSummary = "You entered 0 competitors and 0 sellers. While crowding is zero, verify that USA shoppers actively want this product and reliable US-friendly suppliers exist before committing ad spend.";
+      } else if (inputs.competitors <= 5 && inputs.sellers <= 15) {
+        saturationLevel = "Low";
+        compBadge = "badge-success";
+        positioning = "Validated Sweet Spot";
+        compSummary = `With ${inputs.competitors} direct competitor(s) and ${inputs.sellers} active seller(s), this niche shows market proof without severe ad saturation. Focus on superior landing page trust and US delivery speed.`;
+      } else if (inputs.competitors <= 15 && inputs.sellers <= 35) {
+        saturationLevel = "Moderate";
+        compBadge = "badge-warn";
+        positioning = "Differentiate via Angle";
+        compSummary = `${inputs.competitors} competitors and ${inputs.sellers} sellers indicate healthy demand with growing competition. You will need distinct video hooks, bundle offers, or stronger branding to beat baseline listings.`;
+      } else {
+        saturationLevel = "High";
+        compBadge = "badge-danger";
+        positioning = "Crowded / Brand-Only";
+        compSummary = `At ${inputs.competitors} direct competitors and ${inputs.sellers} sellers, CPCs and creative fatigue can quickly erode margins. Enter only with a unique bundle, custom packaging, or an untapped audience angle.`;
+      }
+
+      if (inputs.competitorNotes) {
+        compSummary += ` Your note: "${inputs.competitorNotes}".`;
+      }
+
+      let adBufferLabel = "Weak (< $10)";
+      if (netProfit >= 20) adBufferLabel = "Strong (>= $20)";
+      else if (netProfit >= 12) adBufferLabel = "Moderate ($12–$19)";
+
+      // 4. Dynamic Pros & Cons
+      const pros = [];
+      const cons = [];
+
+      if (grossMarginPct >= 50) pros.push(`Strong gross margin of ${grossMarginPct.toFixed(1)}% supports paid US traffic.`);
+      else if (grossMarginPct >= 35) pros.push(`Workable gross margin of ${grossMarginPct.toFixed(1)}%, though bundles will improve ROI.`);
+      else cons.push(`Low gross margin (${grossMarginPct.toFixed(1)}%) leaves little room for Meta/TikTok ad spend.`);
+
+      if (netProfit >= 15) pros.push(`Healthy ${formatCurrency(netProfit)} net buffer per unit after est. Shopify payment fees.`);
+      else cons.push(`Tight net profit (${formatCurrency(netProfit)}/unit after fees); high risk if US CPAs exceed ${formatCurrency(Math.max(0, netProfit))}.`);
+
+      if (inputs.shippingCost > inputs.supplierCost && inputs.shippingCost > 0) {
+        cons.push(`Shipping cost (${formatCurrency(inputs.shippingCost)}) exceeds supplier product cost; explore US 3PL or lightweight packaging.`);
+      }
+
+      if (inputs.competitors >= 1 && inputs.competitors <= 5) {
+        pros.push(`Low direct store crowding (${inputs.competitors} competitors) allows faster creative testing.`);
+      } else if (inputs.competitors > 15) {
+        cons.push(`High direct competition (${inputs.competitors} stores) increases customer acquisition cost.`);
+      } else if (inputs.competitors === 0) {
+        cons.push("Zero observed competitors—confirm organic/search demand before scaling.");
+      }
+
+      if (inputs.features.solvesPain) pros.push("Solves a tangible customer pain point (stronger conversion rate).");
+      else cons.push("Does not clearly solve a pressing pain point; harder to convert cold traffic.");
+
+      if (inputs.features.wowFactor) pros.push("Visual hook lends itself well to short-form video ads.");
+      if (inputs.features.easyShip) pros.push("Lightweight profile reduces US shipping costs and damage refunds.");
+      else cons.push("Bulky or fragile shipping profile could inflate US fulfillment costs and returns.");
+
+      if (inputs.features.repeatValue) pros.push("Supports upsells, bundles, or repeat orders to boost LTV.");
+      if (inputs.demand.evergreen) pros.push("Evergreen demand reduces seasonal inventory/ad volatility.");
+      else cons.push("Seasonal or trend-dependent demand requires tight timing.");
+
+      if (demandCount <= 2) {
+        cons.push(`Only ${demandCount}/5 demand signals confirmed—validate search or ad traction further.`);
+      }
+
+      if (pros.length === 0) pros.push("Low upfront cost to test creatives if you secure a stronger margin offer.");
+      if (cons.length === 0) cons.push("No major red flags in your inputs—validate product quality with a physical sample first.");
+
+      return {
+        inputs,
+        economics: {
+          landedCost,
+          grossProfit,
+          grossMarginPct,
+          markupPct,
+          shopifyFee,
+          netProfit,
+          netMarginPct,
+          breakEvenRoas
+        },
+        score: {
+          totalScore,
+          economicsPts,
+          marginPts,
+          marginRule,
+          bufferPts,
+          bufferRule,
+          competitionPts,
+          compPts,
+          compRule,
+          sellerPts,
+          sellerRule,
+          featurePts,
+          featureCount,
+          demandPts,
+          demandCount,
+          verdict,
+          verdictBadge
+        },
+        competition: {
+          saturationLevel,
+          compBadge,
+          positioning,
+          adBufferLabel,
+          compSummary
+        },
+        pros,
+        cons
+      };
+    }
+
+    /* =========================================================
+       RENDERING UI
+       ========================================================= */
+    function updateDashboard() {
+      const inputs = readFormInputs();
+      const data = computeAnalysis(inputs);
+      const { economics, score, competition } = data;
+
+      // Update Profit & Margin KPIs
+      const grossEl = document.getElementById("kpiGrossProfit");
+      grossEl.textContent = formatCurrency(economics.grossProfit);
+      grossEl.className = "kpi-value " + (economics.grossProfit >= 15 ? "positive" : economics.grossProfit > 0 ? "warning" : "negative");
+      document.getElementById("kpiLandedCost").textContent = "Landed Cost: " + formatCurrency(economics.landedCost);
+
+      const marginEl = document.getElementById("kpiGrossMargin");
+      marginEl.textContent = economics.grossMarginPct.toFixed(1) + "%";
+      marginEl.className = "kpi-value " + (economics.grossMarginPct >= 50 ? "positive" : economics.grossMarginPct >= 30 ? "warning" : "negative");
+      document.getElementById("kpiMarkup").textContent = "Markup: " + economics.markupPct.toFixed(0) + "%";
+
+      const netEl = document.getElementById("kpiNetProfit");
+      netEl.textContent = formatCurrency(economics.netProfit);
+      netEl.className = "kpi-value " + (economics.netProfit >= 12 ? "positive" : economics.netProfit > 0 ? "warning" : "negative");
+      document.getElementById("kpiNetMargin").textContent = "Net Margin: " + economics.netMarginPct.toFixed(1) + "%";
+
+      document.getElementById("kpiRoas").textContent = economics.breakEvenRoas ? economics.breakEvenRoas.toFixed(2) + "x" : "N/A";
+      document.getElementById("kpiMaxCpa").textContent = "Max Ad CPA: " + formatCurrency(Math.max(0, economics.netProfit));
+
+      const healthBadge = document.getElementById("marginHealthBadge");
+      if (economics.grossMarginPct >= 55) {
+        healthBadge.textContent = "Healthy Margin";
+        healthBadge.className = "badge badge-success";
+      } else if (economics.grossMarginPct >= 35) {
+        healthBadge.textContent = "Moderate Margin";
+        healthBadge.className = "badge badge-warn";
+      } else {
+        healthBadge.textContent = "Thin / Loss Margin";
+        healthBadge.className = "badge badge-danger";
+      }
+
+      // Update Score Ring & Breakdown
+      document.getElementById("scoreTotal").textContent = score.totalScore;
+      const deg = Math.round((score.totalScore / 100) * 360);
+      const ringColor = score.totalScore >= 75 ? "#10b981" : score.totalScore >= 55 ? "#7c3aed" : "#ef4444";
+      document.getElementById("scoreRing").style.background = `conic-gradient(${ringColor} ${deg}deg, #e2e8f0 ${deg}deg)`;
+
+      const verdictBadge = document.getElementById("scoreVerdictBadge");
+      verdictBadge.textContent = score.verdict;
+      verdictBadge.className = "badge " + score.verdictBadge;
+
+      document.getElementById("ptsEconomics").textContent = `${score.economicsPts} / 35 pts`;
+      document.getElementById("barEconomics").style.width = `${(score.economicsPts / 35) * 100}%`;
+      document.getElementById("noteEconomics").textContent = `${score.marginPts}/25 margin + ${score.bufferPts}/10 unit buffer`;
+
+      document.getElementById("ptsCompetition").textContent = `${score.competitionPts} / 25 pts`;
+      document.getElementById("barCompetition").style.width = `${(score.competitionPts / 25) * 100}%`;
+      document.getElementById("noteCompetition").textContent = `${score.compPts}/15 competitors + ${score.sellerPts}/10 sellers`;
+
+      document.getElementById("ptsFeatures").textContent = `${score.featurePts} / 20 pts`;
+      document.getElementById("barFeatures").style.width = `${(score.featurePts / 20) * 100}%`;
+      document.getElementById("noteFeatures").textContent = `${score.featureCount} of 5 product features selected (4 pts each)`;
+
+      document.getElementById("ptsDemand").textContent = `${score.demandPts} / 20 pts`;
+      document.getElementById("barDemand").style.width = `${(score.demandPts / 20) * 100}%`;
+      document.getElementById("noteDemand").textContent = `${score.demandCount} of 5 demand signals checked (4 pts each)`;
+
+      // Explain Table
+      const explainRows = [
+        ["Gross Margin %", `${economics.grossMarginPct.toFixed(1)}%`, score.marginRule, `${score.marginPts} / 25`],
+        ["Gross Profit Buffer", formatCurrency(economics.grossProfit), score.bufferRule, `${score.bufferPts} / 10`],
+        ["Direct Competitors", `${inputs.competitors} store(s)`, score.compRule, `${score.compPts} / 15`],
+        ["Active Sellers", `${inputs.sellers} listing(s)`, score.sellerRule, `${score.sellerPts} / 10`],
+        ["Product Features", `${score.featureCount} selected`, "4 pts per verified feature", `${score.featurePts} / 20`],
+        ["Demand Signals", `${score.demandCount} observed`, "4 pts per observed signal", `${score.demandPts} / 20`]
+      ];
+      document.getElementById("scoreExplainBody").innerHTML = explainRows
+        .map(r => `<tr><td><strong>${escapeHtml(r[0])}</strong></td><td>${escapeHtml(r[1])}</td><td>${escapeHtml(r[2])}</td><td><strong>${escapeHtml(r[3])}</strong></td></tr>`)
+        .join("");
+
+      // Competition Analysis
+      document.getElementById("compSaturation").textContent = competition.saturationLevel;
+      document.getElementById("compPositioning").textContent = competition.positioning;
+      document.getElementById("compAdBuffer").textContent = competition.adBufferLabel;
+      document.getElementById("compSummaryText").textContent = competition.compSummary;
+      const cBadge = document.getElementById("compTierBadge");
+      cBadge.textContent = competition.saturationLevel + " Saturation";
+      cBadge.className = "badge " + competition.compBadge;
+
+      // Research Report
+      document.getElementById("reportTitleProduct").textContent = inputs.productName;
+      document.getElementById("reportPros").innerHTML = data.pros.map(p => `<li>${escapeHtml(p)}</li>`).join("");
+      document.getElementById("reportCons").innerHTML = data.cons.map(c => `<li>${escapeHtml(c)}</li>`).join("");
+
+      renderChecklist();
+    }
+
+    function renderChecklist() {
+      const doneCount = currentChecklist.filter(item => item.done).length;
+      document.getElementById("checklistProgress").textContent = `${doneCount} / ${currentChecklist.length} Done`;
+
+      document.getElementById("checklistContainer").innerHTML = currentChecklist
+        .map((item, idx) => `
+          <label class="checklist-item ${item.done ? "done" : ""}">
+            <input type="checkbox" ${item.done ? "checked" : ""} onchange="toggleChecklistItem(${idx})" />
+            <span>${escapeHtml(item.text)}</span>
+          </label>
+        `)
+        .join("");
+    }
+
+    function toggleChecklistItem(index) {
+      if (currentChecklist[index]) {
+        currentChecklist[index].done = !currentChecklist[index].done;
+        renderChecklist();
+      }
+    }
+
+    /* =========================================================
+       SAVE, LOAD, DELETE, COPY & EXPORT REPORTS
+       ========================================================= */
+    function saveCurrentReport() {
+      if (currentPlan === "free" && savedReports.length >= FREE_REPORT_LIMIT) {
+        showToast(`Free Plan limit (${FREE_REPORT_LIMIT} reports) reached. Delete a report or enable Pro Preview.`);
+        switchView("pricing");
+        return;
+      }
+
+      const inputs = readFormInputs();
+      const analysis = computeAnalysis(inputs);
+      const reportRecord = {
+        id: "rep_" + Date.now(),
+        savedAt: new Date().toISOString(),
+        inputs,
+        analysis,
+        checklist: JSON.parse(JSON.stringify(currentChecklist))
+      };
+
+      savedReports.unshift(reportRecord);
+      safeSetStorage(STORAGE_KEYS.REPORTS, savedReports);
+      updatePlanAndCountUI();
+      renderSavedReports();
+      showToast(`Saved "${inputs.productName}" to browser storage!`);
+    }
+
+    function renderSavedReports() {
+      const grid = document.getElementById("savedReportsGrid");
+      const query = (document.getElementById("savedSearchInput").value || "").trim().toLowerCase();
+      const filtered = savedReports.filter(r => r.inputs.productName.toLowerCase().includes(query));
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="empty-state" style="grid-column: 1 / -1;">
+            <h3 style="color: var(--navy-900); margin-bottom: 0.4rem;">No saved reports ${query ? "matching your search" : "yet"}</h3>
+            <p style="font-size: 0.88rem; margin-bottom: 1rem;">Analyze a product in the Research Studio and click <strong>Save Report</strong> to keep it here.</p>
+            <button type="button" class="btn btn-primary btn-sm" onclick="switchView('studio')">Go to Research Studio</button>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(rep => {
+        const dt = new Date(rep.savedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+        const score = rep.analysis.score.totalScore;
+        const badgeCls = score >= 75 ? "badge-success" : score >= 55 ? "badge-warn" : "badge-danger";
+        return `
+          <article class="saved-card">
+            <div>
+              <div class="saved-card-top">
+                <div>
+                  <h3>${escapeHtml(rep.inputs.productName)}</h3>
+                  <div class="saved-date">Saved ${escapeHtml(dt)} · ${escapeHtml(rep.analysis.competition.saturationLevel)} Saturation</div>
+                </div>
+                <span class="badge ${badgeCls}">${score}/100</span>
+              </div>
+            </div>
+
+            <div class="saved-metrics">
+              <div>Price<strong>${formatCurrency(rep.inputs.sellingPrice)}</strong></div>
+              <div>Gross Profit<strong>${formatCurrency(rep.analysis.economics.grossProfit)}</strong></div>
+              <div>Margin<strong>${rep.analysis.economics.grossMarginPct.toFixed(1)}%</strong></div>
+            </div>
+
+            <div style="display: flex; gap: 0.45rem; flex-wrap: wrap;">
+              <button type="button" class="btn btn-primary btn-sm" style="flex: 1;" onclick="loadSavedReport('${rep.id}')">Open in Studio</button>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="copySavedReport('${rep.id}')">Copy</button>
+              <button type="button" class="btn btn-danger-soft btn-sm" onclick="deleteSavedReport('${rep.id}')">Delete</button>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function loadSavedReport(id) {
+      const rep = savedReports.find(r => r.id === id);
+      if (!rep) return;
+      const inp = rep.inputs;
+
+      document.getElementById("productName").value = inp.productName;
+      document.getElementById("supplierCost").value = inp.supplierCost;
+      document.getElementById("shippingCost").value = inp.shippingCost;
+      document.getElementById("sellingPrice").value = inp.sellingPrice;
+      document.getElementById("competitors").value = inp.competitors;
+      document.getElementById("sellers").value = inp.sellers;
+      document.getElementById("competitorNotes").value = inp.competitorNotes || "";
+      document.getElementById("featureNotes").value = inp.featureNotes || "";
+
+      document.getElementById("feat_solvesPain").checked = !!inp.features.solvesPain;
+      document.getElementById("feat_wowFactor").checked = !!inp.features.wowFactor;
+      document.getElementById("feat_easyShip").checked = !!inp.features.easyShip;
+      document.getElementById("feat_repeatValue").checked = !!inp.features.repeatValue;
+      document.getElementById("feat_brandable").checked = !!inp.features.brandable;
+
+      document.getElementById("dem_searchMomentum").checked = !!inp.demand.searchMomentum;
+      document.getElementById("dem_socialTraction").checked = !!inp.demand.socialTraction;
+      document.getElementById("dem_evergreen").checked = !!inp.demand.evergreen;
+      document.getElementById("dem_impulseAppeal").checked = !!inp.demand.impulseAppeal;
+      document.getElementById("dem_valuePerception").checked = !!inp.demand.valuePerception;
+
+      currentChecklist = Array.isArray(rep.checklist)
+        ? JSON.parse(JSON.stringify(rep.checklist))
+        : JSON.parse(JSON.stringify(DEFAULT_CHECKLIST));
+
+      updateDashboard();
+      switchView("studio");
+      showToast(`Loaded "${inp.productName}" into Research Studio.`);
+    }
+
+    function deleteSavedReport(id) {
+      savedReports = savedReports.filter(r => r.id !== id);
+      safeSetStorage(STORAGE_KEYS.REPORTS, savedReports);
+      updatePlanAndCountUI();
+      renderSavedReports();
+      showToast("Report deleted.");
+    }
+
+    function clearAllReports() {
+      if (savedReports.length === 0) return;
+      if (!confirm("Delete all locally saved SellWise AI reports?")) return;
+      savedReports = [];
+      safeSetStorage(STORAGE_KEYS.REPORTS, savedReports);
+      updatePlanAndCountUI();
+      renderSavedReports();
+      showToast("All saved reports cleared.");
+    }
+
+    function buildReportText(data, checklist) {
+      const { inputs, economics, score, competition, pros, cons } = data;
+      return [
+        `SELLWISE AI — PRODUCT RESEARCH REPORT`,
+        `==================================================`,
+        `Product: ${inputs.productName}`,
+        `Opportunity Score: ${score.totalScore}/100 (${score.verdict})`,
+        ``,
+        `1. UNIT ECONOMICS (USD)`,
+        `- Selling Price: ${formatCurrency(inputs.sellingPrice)}`,
+        `- Supplier Cost: ${formatCurrency(inputs.supplierCost)}`,
+        `- Shipping Cost: ${formatCurrency(inputs.shippingCost)}`,
+        `- Landed Cost: ${formatCurrency(economics.landedCost)}`,
+        `- Gross Profit: ${formatCurrency(economics.grossProfit)} (${economics.grossMarginPct.toFixed(1)}% margin)`,
+        `- Net Profit (after est. 2.9% + $0.30 US Shopify fee): ${formatCurrency(economics.netProfit)} (${economics.netMarginPct.toFixed(1)}%)`,
+        `- Break-Even ROAS: ${economics.breakEvenRoas ? economics.breakEvenRoas.toFixed(2) + "x" : "N/A"}`,
+        ``,
+        `2. TRANSPARENT SCORE BREAKDOWN`,
+        `- Unit Economics & Margin: ${score.economicsPts}/35 pts (${score.marginRule}; ${score.bufferRule})`,
+        `- Competition & Supply: ${score.competitionPts}/25 pts (${score.compRule}; ${score.sellerRule})`,
+        `- Product Features: ${score.featurePts}/20 pts (${score.featureCount}/5 checked)`,
+        `- Demand Signals: ${score.demandPts}/20 pts (${score.demandCount}/5 checked)`,
+        ``,
+        `3. COMPETITION ANALYSIS (USER INPUTS)`,
+        `- Direct Competitors: ${inputs.competitors} | Active Sellers: ${inputs.sellers}`,
+        `- Saturation Tier: ${competition.saturationLevel} | Positioning: ${competition.positioning}`,
+        `- Assessment: ${competition.compSummary}`,
+        inputs.featureNotes ? `- Feature Notes: ${inputs.featureNotes}` : ``,
+        ``,
+        `4. PROS`,
+        ...pros.map(p => `+ ${p}`),
+        ``,
+        `5. CONS & RISKS`,
+        ...cons.map(c => `- ${c}`),
+        ``,
+        `6. USA SHOPIFY LAUNCH CHECKLIST`,
+        ...checklist.map(c => `[${c.done ? "x" : " "}] ${c.text}`),
+        ``,
+        `Generated locally by SellWise AI (strictly from user-entered inputs).`
+      ].filter(line => line !== null).join("\n");
+    }
+
+    function copyText(text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text)
+          .then(() => showToast("Complete report copied to clipboard!"))
+          .catch(() => fallbackCopy(text));
+      } else {
+        fallbackCopy(text);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand("copy");
+        showToast("Complete report copied to clipboard!");
+      } catch {
+        showToast("Unable to copy automatically. Please check browser permissions.");
+      }
+      document.body.removeChild(ta);
+    }
+
+    function copyReportToClipboard() {
+      const inputs = readFormInputs();
+      const data = computeAnalysis(inputs);
+      copyText(buildReportText(data, currentChecklist));
+    }
+
+    function copySavedReport(id) {
+      const rep = savedReports.find(r => r.id === id);
+      if (!rep) return;
+      copyText(buildReportText(rep.analysis, rep.checklist || DEFAULT_CHECKLIST));
+    }
+
+    function exportSavedCsv() {
+      if (currentPlan !== "pro") {
+        showToast("CSV export is a Pro feature. Enable Pro Preview (Free) in Plans & Pricing!");
+        switchView("pricing");
+        return;
+      }
+      if (savedReports.length === 0) {
+        showToast("No saved reports to export.");
+        return;
+      }
+      const headers = ["Product Name", "Saved Date", "Score/100", "Selling Price", "Landed Cost", "Gross Profit", "Gross Margin %", "Competitors", "Sellers", "Saturation"];
+      const rows = savedReports.map(r => [
+        `"${r.inputs.productName.replace(/"/g, '""')}"`,
+        r.savedAt,
+        r.analysis.score.totalScore,
+        r.inputs.sellingPrice.toFixed(2),
+        r.analysis.economics.landedCost.toFixed(2),
+        r.analysis.economics.grossProfit.toFixed(2),
+        r.analysis.economics.grossMarginPct.toFixed(1),
+        r.inputs.competitors,
+        r.inputs.sellers,
+        r.analysis.competition.saturationLevel
+      ].join(","));
+
+      const csv = [headers.join(","), ...rows].join("\n");
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "sellwise-ai-reports.csv";
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast("Exported saved reports to CSV.");
+    }
+
+    /* =========================================================
+       SAMPLE PRESETS, NAVIGATION & PLAN INTERFACE
+       ========================================================= */
+    function loadSample(type) {
+      if (type === "winning") {
+        document.getElementById("productName").value = "Ergonomic Cervical Neck Stretcher";
+        document.getElementById("supplierCost").value = "8.50";
+        document.getElementById("shippingCost").value = "4.50";
+        document.getElementById("sellingPrice").value = "39.99";
+        document.getElementById("competitors").value = "4";
+        document.getElementById("sellers").value = "9";
+        document.getElementById("competitorNotes").value = "Competitors sell around $35-$44; weak unboxing branding";
+        document.getElementById("featureNotes").value = "Memory foam core, compact retail box, easy 10-minute daily posture routine.";
+        document.getElementById("feat_solvesPain").checked = true;
+        document.getElementById("feat_wowFactor").checked = true;
+        document.getElementById("feat_easyShip").checked = true;
+        document.getElementById("feat_repeatValue").checked = false;
+        document.getElementById("feat_brandable").checked = true;
+        document.getElementById("dem_searchMomentum").checked = true;
+        document.getElementById("dem_socialTraction").checked = true;
+        document.getElementById("dem_evergreen").checked = true;
+        document.getElementById("dem_impulseAppeal").checked = false;
+        document.getElementById("dem_valuePerception").checked = true;
+      } else if (type === "crowded") {
+        document.getElementById("productName").value = "Generic RGB LED Strip Lights (5m)";
+        document.getElementById("supplierCost").value = "6.80";
+        document.getElementById("shippingCost").value = "4.20";
+        document.getElementById("sellingPrice").value = "19.99";
+        document.getElementById("competitors").value = "45";
+        document.getElementById("sellers").value = "120";
+        document.getElementById("competitorNotes").value = "Amazon Prime offers same-day delivery at $14.99";
+        document.getElementById("featureNotes").value = "Standard adhesive RGB strip with remote.";
+        document.getElementById("feat_solvesPain").checked = false;
+        document.getElementById("feat_wowFactor").checked = true;
+        document.getElementById("feat_easyShip").checked = true;
+        document.getElementById("feat_repeatValue").checked = false;
+        document.getElementById("feat_brandable").checked = false;
+        document.getElementById("dem_searchMomentum").checked = false;
+        document.getElementById("dem_socialTraction").checked = true;
+        document.getElementById("dem_evergreen").checked = true;
+        document.getElementById("dem_impulseAppeal").checked = true;
+        document.getElementById("dem_valuePerception").checked = false;
+      }
+      currentChecklist = JSON.parse(JSON.stringify(DEFAULT_CHECKLIST));
+      updateDashboard();
+      showToast("Sample inputs loaded (not live market data).");
+    }
+
+    function resetForm() {
+      document.getElementById("productName").value = "";
+      document.getElementById("supplierCost").value = "0";
+      document.getElementById("shippingCost").value = "0";
+      document.getElementById("sellingPrice").value = "0";
+      document.getElementById("competitors").value = "0";
+      document.getElementById("sellers").value = "0";
+      document.getElementById("competitorNotes").value = "";
+      document.getElementById("featureNotes").value = "";
+      document.querySelectorAll("#researchForm input[type='checkbox']").forEach(cb => { cb.checked = false; });
+      currentChecklist = JSON.parse(JSON.stringify(DEFAULT_CHECKLIST));
+      updateDashboard();
+    }
+
+    function switchView(viewName) {
+      document.querySelectorAll(".view-section").forEach(sec => sec.classList.remove("active"));
+      document.getElementById("view-" + viewName).classList.add("active");
+
+      document.querySelectorAll(".nav-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.view === viewName);
+      });
+
+      if (viewName === "saved") renderSavedReports();
+    }
+
+    function setPlan(plan) {
+      currentPlan = plan === "pro" ? "pro" : "free";
+      safeSetStorage(STORAGE_KEYS.PLAN, currentPlan);
+      updatePlanAndCountUI();
+      showToast(currentPlan === "pro"
+        ? "Pro Preview activated locally (no payment collected)."
+        : "Switched to Free Plan.");
+    }
+
+    function updatePlanAndCountUI() {
+      const count = savedReports.length;
+      document.getElementById("savedCountBadge").textContent = count;
+
+      const pill = document.getElementById("headerPlanPill");
+      const pillText = document.getElementById("headerPlanText");
+      const freeBtn = document.getElementById("selectFreeBtn");
+      const proBtn = document.getElementById("selectProBtn");
+      const limitIndicator = document.getElementById("savedLimitIndicator");
+
+      if (currentPlan === "pro") {
+        pill.classList.add("pro");
+        pillText.textContent = "Pro Preview";
+        freeBtn.textContent = "Switch to Free Plan";
+        proBtn.textContent = "Active (Pro Preview)";
+        limitIndicator.textContent = `${count} Reports Saved (Unlimited in Pro Preview)`;
+      } else {
+        pill.classList.remove("pro");
+        pillText.textContent = "Free Plan";
+        freeBtn.textContent = "Current Plan";
+        proBtn.textContent = "Activate Pro Preview (Free)";
+        limitIndicator.textContent = `${count} / ${FREE_REPORT_LIMIT} Free Reports Used`;
+      }
+    }
+
+    let toastTimer = null;
+    function showToast(msg) {
+      const el = document.getElementById("toast");
+      el.textContent = msg;
+      el.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => el.classList.remove("show"), 3000);
+    }
+
+    /* =========================================================
+       INIT & LIVE INPUT LISTENERS
+       ========================================================= */
+    document.getElementById("researchForm").addEventListener("input", updateDashboard);
+    document.getElementById("researchForm").addEventListener("change", updateDashboard);
+
+    updatePlanAndCountUI();
+    updateDashboard();
+    renderSavedReports();
+  </script>
+</body>
+</html>
